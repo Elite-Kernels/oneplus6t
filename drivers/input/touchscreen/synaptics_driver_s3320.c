@@ -2355,7 +2355,7 @@ static ssize_t synap_write_address(struct file *file, const char __user *buffer,
     }
     else
         block = temp_block;
-	return count;
+    return count;
 }
 
 #ifdef SUPPORT_GLOVES_MODE
