@@ -10106,11 +10106,7 @@ struct afe_clk_set {
 	 * for enable and disable clock.
 	 *	"clk_freq_in_hz", "clk_attri", and "clk_root"
 	 *	are ignored in disable clock case.
-<<<<<<< HEAD
-	 *	@values 
-=======
 	 *	@values 
->>>>>>> 6789d46b0fc8... techpack/audio: Import techpack audio from commit 0c8a5c54eb9743d5c486a9b9d792e86a2625a287
 	 *	- 0 -- Disabled
 	 *	- 1 -- Enabled  @tablebulletend
 	 */
