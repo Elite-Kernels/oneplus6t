@@ -26,9 +26,9 @@
   m=$k/out/$c/system/lib/modules
   z=$c-$today
 
-TOOLCHAIN=/home/forrest/kernel/aarch64-linux-android-4.9/bin/aarch64-linux-android-
+#TOOLCHAIN=/home/forrest/kernel/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 #TOOLCHAIN=/home/forrest/kernel/gcc8.2/bin/aarch64-cortex_a75-linux-android-
-#TOOLCHAIN=/home/forrest/kernel/linaro-7.2/bin/aarch64-linux-android-
+TOOLCHAIN=/home/forrest/kernel/linaro8.2/bin/aarch64-linux-gnu-
 # export CROSS_COMPILE=/home/forrest/kernel/gcc4.9/bin/aarch64-linux-android-
 export ARCH=arm64
 export SUBARCH=arm64
@@ -37,7 +37,7 @@ export SUBARCH=arm64
 #make CROSS_COMPILE=$TOOLCHAIN -j`grep 'processor' /proc/cpuinfo | wc -l` mrproper
  
 # remove backup files
-find ./ -name '*~' | xargs rm
+# find ./ -name '*~' | xargs rm
 # rm compile.log
 
 # make kernel
