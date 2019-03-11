@@ -6270,7 +6270,6 @@ static int synaptics_ts_probe(struct i2c_client *client, const struct i2c_device
 	}
 #endif
 	init_synaptics_proc();
-<<<<<<< HEAD
 #ifdef WAKE_GESTURES
 	gl_ts = ts;
 
@@ -6307,12 +6306,10 @@ static int synaptics_ts_probe(struct i2c_client *client, const struct i2c_device
 		pr_warn("%s: sysfs_create_file failed for wake_gestures\n", __func__);
 	}
 #endif
-=======
 
 	pm_qos_add_request(&ts->pm_qos_req, PM_QOS_CPU_DMA_LATENCY,
 			PM_QOS_DEFAULT_VALUE);
 
->>>>>>> 347ca98... s3320: require low latency
 	TPDTM_DMESG("synaptics_ts_probe 3203: normal end\n");
 
 	bootmode = get_boot_mode();
