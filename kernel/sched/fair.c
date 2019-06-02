@@ -7432,9 +7432,9 @@ task_is_boosted(struct task_struct *p) {
  * to run on any cpu.
  */
 static inline bool
-cpu_is_in_target_set(struct task_struct *p, int cpu, struct cpumask *rtg_target)
+cpu_is_in_target_set(struct task_struct *p, int cpu)
 {
-	int first_cpu = start_cpu(p, task_is_boosted(p), rtg_target);
+	int first_cpu = start_cpu(task_is_boosted(p));
 	int next_usable_cpu = cpumask_next(first_cpu - 1, tsk_cpus_allowed(p));
 	return cpu >= next_usable_cpu || next_usable_cpu >= nr_cpu_ids;
 }
@@ -7453,7 +7453,7 @@ bias_to_prev_cpu(struct task_struct *p, struct cpumask *rtg_target)
 	u64 ms = sched_clock();
 #endif
 
-	if (!cpu_is_in_target_set(p, prev_cpu, rtg_target)) {
+	if (!cpu_is_in_target_set(p, prev_cpu)) {
 		return false;
 	}
 
@@ -7678,7 +7678,7 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int sd_flag, int wake_f
 
 			if (sysctl_sched_sync_hint_enable && sync &&
 			    !_wake_cap && about_to_idle &&
-			    cpu_is_in_target_set(p, cpu, NULL))
+			    cpu_is_in_target_set(p, cpu))
 				return cpu;
 		}
 
@@ -7695,7 +7695,7 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int sd_flag, int wake_f
 		 * that the selection algorithm for a boosted task
 		 * should be used.
 		 */
-		bool sync_boost = sync && cpu >= start_cpu(p, true, NULL);
+		bool sync_boost = sync && cpu >= start_cpu(true);
 
 		return select_energy_cpu_brute(p, prev_cpu, sync_boost);
 	}
