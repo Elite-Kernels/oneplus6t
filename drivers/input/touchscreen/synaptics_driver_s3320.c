@@ -6441,10 +6441,7 @@ static int synaptics_ts_suspend(struct device *dev)
 			TPD_ERR("enter gesture mode\n");
 		}
 		//set_doze_time(2);	/*change dozeinterval by firmware*/
-<<<<<<< HEAD
 		//just for fajita
-=======
->>>>>>> remotes/nate/oneplus/SDM845_P_9.0_Beta
 		if (ts->project_version == 0x03) {
 			mutex_lock(&ts->mutex);
 			tp_single_tap_en(ts, true);
