@@ -79,6 +79,7 @@ void save_dump_reason_to_smem(char *info, char *function_name)
 
         if (function_name != NULL && ((strlen(dp_info->dump_reason) + strl1) < DUMP_REASON_SIZE)) {
                 strncat(dp_info->dump_reason,function_name,sizeof(strl1));
+                strncat(dp_info->dump_reason,"\n",1);
 	}
     }
     pr_err("\r%s: dump_reason : %s strl=%d function caused panic :%s strl1=%d \n", __func__,
