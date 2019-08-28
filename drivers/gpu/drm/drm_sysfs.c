@@ -22,10 +22,6 @@
 #include <drm/drmP.h>
 #include "drm_internal.h"
 
-
-
-
-
 #include <linux/list.h>
 #include <linux/of.h>
 #include <linux/kobject.h>
@@ -33,13 +29,6 @@
 #include <linux/module.h>
 #include <linux/init.h>
 #include <drm/drm_mipi_dsi.h>
-
-
-
-
-
-
-
 
 #define to_drm_minor(d) dev_get_drvdata(d)
 #define to_drm_connector(d) dev_get_drvdata(d)
@@ -841,7 +830,7 @@ static struct attribute *connector_dev_attrs[] = {
 	&dev_attr_force_screenfp.attr,
 	&dev_attr_dim_alpha.attr,
 	&dev_attr_notify_fppress.attr,
-    &dev_attr_notify_dim.attr,
+        &dev_attr_notify_dim.attr,
 	&dev_attr_notify_aod.attr,
 	&dev_attr_dp_en.attr,
 	&dev_attr_dither_en.attr,
