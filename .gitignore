@@ -119,4 +119,11 @@ all.config
 # fetched Android config fragments
 kernel/configs/android-*.cfg
 
-drivers/oneplus
+#drivers/oneplus
+
+*.rej
+*.diff
+*.patch
+*.list
+out/*
+scripts/rkp_cfp/tmp/*
