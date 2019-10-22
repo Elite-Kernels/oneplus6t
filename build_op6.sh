@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to build your kernel
-  k=~/kernel/op6t
+  k=~/kernel/op6tq
 # Directory for the any kernel updater
   t=$k/packages
 # Date to add to zip
