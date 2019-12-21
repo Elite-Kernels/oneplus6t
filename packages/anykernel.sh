@@ -29,19 +29,12 @@ ramdisk_compression=auto;
 
 ## AnyKernel file attributes
 # set permissions/ownership for included ramdisk files
-chmod -R 750 $ramdisk/*;
-chmod -R 755 $ramdisk/sbin;
-chown -R root:root $ramdisk/*;
+set_perm_recursive 0 0 755 644 $ramdisk/*;
+set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 
 
 ## AnyKernel install
 dump_boot;
-
-if [ -d $ramdisk/.subackup -o -d $ramdisk/.backup ]; then
-  patch_cmdline "skip_override" "skip_override";
-else
-  patch_cmdline "skip_override" "";
-fi;
 
 # begin ramdisk changes
 # end ramdisk changes
